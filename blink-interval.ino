@@ -2,9 +2,9 @@ void setup() {
   pinMode(LED_BUILTIN, OUTPUT);
 }
 
-unsigned long lastBlink = micros();
 void loop() {
-  static unsigned long blinkInterval = 1000000 / 5; // interval in Hertz
+  static uint32_t blinkInterval = 1000000; // interval in microseconds
+  static uint32_t lastBlink = micros();
   if ( micros() - lastBlink >= blinkInterval ) {
     lastBlink = micros();
     digitalWrite( LED_BUILTIN, digitalRead(LED_BUILTIN)==LOW? HIGH:LOW );
